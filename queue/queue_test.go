@@ -3,7 +3,7 @@ package queue
 import "testing"
 
 func TestNewQueue(t *testing.T) {
-	queue := NewQueue()
+	queue := NewQueue[string]()
 
 	if queue.Length() != 0 {
 		t.Error("New queue should be empty")
@@ -11,7 +11,7 @@ func TestNewQueue(t *testing.T) {
 }
 
 func TestEnqueu(t *testing.T) {
-	queue := NewQueue()
+	queue := NewQueue[string]()
 	queue.Enqueue("A")
 
 	if queue.Length() != 1 {
@@ -20,7 +20,7 @@ func TestEnqueu(t *testing.T) {
 }
 
 func TestDequeue(t *testing.T) {
-	queue := NewQueue()
+	queue := NewQueue[string]()
 	queue.Enqueue("A")
 	value, _ := queue.Dequeue()
 
@@ -30,7 +30,7 @@ func TestDequeue(t *testing.T) {
 }
 
 func TestDequeueEmpty(t *testing.T) {
-	queue := NewQueue()
+	queue := NewQueue[string]()
 
 	_, err := queue.Dequeue()
 
