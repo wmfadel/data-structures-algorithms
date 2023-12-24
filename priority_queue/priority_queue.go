@@ -3,14 +3,16 @@ package priorityqueue
 import (
 	"errors"
 	"sync"
+
+	"golang.org/x/exp/constraints"
 )
 
-type queue[T comparable] struct {
+type queue[T constraints.Ordered] struct {
 	lock   sync.Mutex
 	values []T
 }
 
-func NewPriorityQueue[T comparable]() *queue[T] {
+func NewPriorityQueue[T constraints.Ordered]() *queue[T] {
 	return &queue[T]{
 		lock:   sync.Mutex{},
 		values: make([]T, 0),
@@ -26,23 +28,19 @@ func (q *queue[T]) Enqueue(value T) {
 	q.secureLock()
 
 	length := len(q.values)
-
 	if length == 0 {
 		q.values = append(q.values, value)
 		return
 	}
-	split := 0
+	split := length
 	for i, v := range q.values {
 		if v > value {
 			split = i
+			break
 		}
 	}
 
-	temp := q.values
-
-	q.values = temp[:split]
-	q.values = append(q.values, value)
-	q.values = append(q.values, temp[split+1:]...)
+	q.values = append(q.values[:split], append([]T{value}, q.values[split:]...)...)
 
 }
 

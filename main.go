@@ -1,18 +1,18 @@
 package main
 
 import (
-	"data-structures-algorithms/queue"
+	priorityqueue "data-structures-algorithms/priority_queue"
 	"fmt"
 )
 
 func main() {
 
-	queue := queue.NewQueue[string]()
-
-	queue.Enqueue("A")
+	queue := priorityqueue.NewPriorityQueue[string]()
 	queue.Enqueue("B")
-	queue.Enqueue("C")
+
 	queue.Enqueue("D")
+	queue.Enqueue("C")
+	queue.Enqueue("A")
 	fmt.Println(queue.Dequeue())
 	fmt.Println(queue.Dequeue())
 	fmt.Println(queue.Dequeue())
