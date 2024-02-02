@@ -1,7 +1,5 @@
 package binarysearch
 
-import "fmt"
-
 func Search(a []int, search int) (result int, searchCount int) {
 	mid := len(a) / 2
 	switch {
@@ -13,7 +11,6 @@ func Search(a []int, search int) (result int, searchCount int) {
 		result, searchCount = Search(a[mid+1:], search)
 		if result >= 0 { // if anything but the -1 "not found" result
 			result += mid + 1
-			fmt.Println("result", result)
 		}
 	default: // a[mid] == search
 		result = mid // found
