@@ -1,7 +1,7 @@
 package main
 
 import (
-	binarysearch "data-structures-algorithms/binary_Search"
+	binarysearch "data-structures-algorithms/binary_search"
 	"fmt"
 )
 
