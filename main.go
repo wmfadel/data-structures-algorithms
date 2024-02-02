@@ -19,7 +19,7 @@ func main() {
 	// fmt.Println(queue.Dequeue())
 	// fmt.Println(queue.Dequeue())
 
-	data := []int{0, 1, 2, 3, 4, 5, 6}
+	data := []int{0, 1, 2, 3, 4, 5, 6, 100, 344, 6547, 999999}
 
-	fmt.Println(binarysearch.Search(data, 6))
+	fmt.Println(binarysearch.Search(data, -1))
 }
