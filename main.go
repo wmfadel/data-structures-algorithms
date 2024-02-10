@@ -1,7 +1,7 @@
 package main
 
 import (
-	"data-structures-algorithms/selection_sort"
+	"data-structures-algorithms/quick_sort"
 	"fmt"
 )
 
@@ -12,8 +12,8 @@ import (
 func main() {
 	all := []int{0, 5, 8, 6, 7, 1, 2, 3, 4, 9}
 
-	fmt.Println("all: ", all)                         //[0 1 2 3 4 6 7 8 9 9]
-	fmt.Println("sorted: ", selection_sort.Sort(all)) //[0 1 2 3 4 6 7 8 9]
+	fmt.Println("all: ", all)                     //[0 1 2 3 4 6 7 8 9 9]
+	fmt.Println("sorted: ", quick_sort.Sort(all)) //[0 1 2 3 4 6 7 8 9]
 
 }
 
